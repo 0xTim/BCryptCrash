@@ -7,4 +7,8 @@ public func configure(_ app: Application) throws {
 
     // register routes
     try routes(app)
+
+    // Trigger crash in 5.4
+    let password = try Bcrypt.hash("password")
+    app.logger.info("Hash is \(password)")
 }
